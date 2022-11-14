@@ -14,9 +14,9 @@ This is a solution to the Fylo data storage component
 ## Overview
 
 Data storage component with layout depending on device's screen size.
-In this priject I use simple SASS architecture with layour, conponents, base and colors separated in different files.
+In this project I use simple SASS architecture with layour, components, base and colors separated in different files.
 
-Storage line starts from to 75% of whole space-line with animation.
+Storage line starts from 0% to 75% of whole space-line with animation.
 
 ### Screenshot
 
