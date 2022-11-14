@@ -1,0 +1,58 @@
+@use '../styles/layout' as *;
+
+// -- fonts --
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+// -- reset --
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+// -- base --
+html {
+  font-size: 62.5%;
+
+  body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.4rem;
+    color: var(--color-text);
+    box-sizing: border-box;
+    font-weight: 400;
+    text-rendering: optimizeSpeed;
+    background-color: var(--color-bg);
+    background-image: url(/images/bg-desktop.png);
+    background-position: bottom;
+    background-size: 100% 50%; // width height
+    background-repeat: no-repeat;
+
+    @include layout;
+    @include flex(center, center, 2rem);
+    min-height: 100vh;
+
+    @include mobile-only {
+      background-image: url(/images/bg-mobile.png);
+      background-repeat: repeat-y;
+      background-size: 100% 100%;
+    }
+
+    main {
+      @include flex(center, flex-end, 3rem);
+      width: 65%;
+
+      @include mobile-only {
+        width: 95%;
+        flex-direction: column;
+        gap: 1.6rem;
+      }
+
+      section {
+        background-color: var(--color-blue);
+        padding: 3.8rem;
+      }
+    }
+  }
+}

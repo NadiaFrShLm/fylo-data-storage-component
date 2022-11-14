@@ -1,0 +1,24 @@
+@mixin layout($maxWidth: 1440px) {
+  padding: 0 1rem;
+  margin: 0 auto;
+  max-width: $maxWidth;
+}
+
+@mixin flex($justify: false, $align: center, $gap: 1rem) {
+  display: flex;
+  align-items: $align;
+  gap: $gap;
+  @if $justify {
+    justify-content: $justify;
+  }
+  @content;
+}
+
+// --breakpoints --
+//  small tablets & large smartphones (landscape view)
+$breakpoint-mobile: 475px;
+@mixin mobile-only {
+  @media (max-width:#{$breakpoint-mobile}) {
+    @content;
+  }
+}

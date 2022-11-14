@@ -1,0 +1,134 @@
+@use '../styles/base' as *;
+@use '../styles/layout' as *;
+
+@keyframes statistic {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 75%;
+  }
+}
+
+.logo-wrapper {
+  @include flex(center, flex-start, 2.8rem);
+  flex-direction: column;
+  border-radius: 1rem 10rem 1rem 1rem;
+  padding-right: 13rem;
+
+  @include mobile-only {
+    width: 100%;
+  }
+
+  .social {
+    display: flex;
+    gap: 1.4rem;
+
+    .icon-box {
+      @include flex(center);
+      width: 5rem;
+      height: 5rem;
+      border-radius: 1.2rem;
+      background: var(--color-bg);
+      transition: all 0.1s;
+
+      &:hover {
+        filter: brightness(125%) contrast(150%);
+        transform: scale(1.05);
+      }
+      &:active {
+        transform: scale(0.99);
+      }
+    }
+  }
+}
+.download-wrapper {
+  position: relative;
+  border-radius: 1rem;
+  width: 100%;
+
+  .storage-used {
+    margin-bottom: 1.8rem;
+
+    span {
+      font-weight: 700;
+    }
+  }
+  .message-wrapper {
+    @include flex;
+    padding: 1.4rem 2.8rem;
+    position: absolute;
+    top: -6rem;
+    right: 4rem;
+    background-color: #fff;
+    font-weight: 700;
+    border-radius: 1rem 1rem 0 1rem;
+
+    @include mobile-only {
+      border-bottom-right-radius: 1rem;
+      top: 13rem;
+      right: 8rem;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2.5rem;
+      right: 0;
+      border-right: 2rem solid #fff;
+      border-top: 2rem solid #fff;
+      border-left: 2rem solid transparent;
+      border-bottom: 2rem solid transparent;
+
+      @include mobile-only {
+        display: none;
+      }
+    }
+    .message-num {
+      font-size: 4rem;
+      color: var(--color-bg);
+    }
+    .message-left {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      color: var(--color-gray);
+    }
+  }
+  .statiscic-wrapper {
+    margin-bottom: 1rem;
+    height: 2rem;
+    border-radius: 1rem;
+    background-color: hsl(229, 57%, 17%);
+    padding: 3px;
+
+    .statictic-actual {
+      height: 100%;
+      animation-name: statistic;
+      animation-duration: 2s;
+      animation-timing-function: linear;
+      width: 75%;
+      border-radius: 1rem;
+      background: var(--color-gradient);
+      padding: 2px;
+
+      .ball {
+        width: 1rem;
+        height: 100%;
+        border-radius: 50%;
+        margin-left: auto;
+        background-color: #fff;
+      }
+    }
+  }
+
+  .storage {
+    @include flex(space-between);
+    font-size: 1.2rem;
+    font-weight: 700;
+
+    @include mobile-only {
+      margin-bottom: 1.6rem;
+      margin-top: -0.8rem;
+    }
+  }
+}
